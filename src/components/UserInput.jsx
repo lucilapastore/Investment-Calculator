@@ -1,8 +1,9 @@
 import { useState } from "react";
+
 export default function UserInput() {
   const [userInput, setUserInput] = useState({
     initialInvestment: 10000,
-    annualInvestment: 1200,
+    annualInvestment: 2400,
     expectedReturn: 6,
     duration: 10,
   });
@@ -29,23 +30,40 @@ export default function UserInput() {
               handleChange("initialInvestment", event.target.value)
             }
           />
-
-          <p>
-            <label>Annual Investment</label>
-            <input type="number" required />
-          </p>
+        </p>
+        <p>
+          <label>Annual Investment</label>
+          <input
+            type="number"
+            required
+            value={userInput.annualInvestmentInvestment}
+            onChange={(event) =>
+              handleChange("anualInvestment", event.target.value)
+            }
+          />
         </p>
       </div>
 
       <div className="input-group">
         <p>
           <label>Expected Return</label>
-          <input type="number" required />
-
-          <p>
-            <label>Duration</label>
-            <input type="number" required />
-          </p>
+          <input
+            type="number"
+            required
+            value={userInput.expectedReturn}
+            onChange={(event) =>
+              handleChange("expectedReturn", event.target.value)
+            }
+          />
+        </p>
+        <p>
+          <label>Duration</label>
+          <input
+            type="number"
+            required
+            value={userInput.duration}
+            onChange={(event) => handleChange("duration", event.target.value)}
+          />
         </p>
       </div>
     </section>
