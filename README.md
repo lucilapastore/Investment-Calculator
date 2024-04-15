@@ -1,3 +1,3 @@
-# A React powered Investment Calculator
+# A react powered Investment Calculator
 
-The website visitors can use it to calculate multiple future values for given investment parameters.
+The website visitors can use this web application to calculate multiple future values for given investment parameters.
