@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Footer from "./components/Footer.jsx";
 import Header from "./components/Header.jsx";
 import Results from "./components/Results.jsx";
 import UserInput from "./components/UserInput.jsx";
@@ -6,7 +7,7 @@ import UserInput from "./components/UserInput.jsx";
 function App() {
   const [userInput, setUserInput] = useState({
     initialInvestment: 10000,
-    annualInvestment: 2400,
+    annualInvestment: 0,
     expectedReturn: 6,
     duration: 10,
   });
@@ -25,11 +26,18 @@ function App() {
   return (
     <>
       <Header />
-      <UserInput userInput={userInput} onChangeInput={handleChange} />
-      {!inputIsValid && (
-        <p className="center">Please enter a duration greater than zero.</p>
-      )}
-      {inputIsValid && <Results input={userInput} />}
+
+      <main>
+        <UserInput userInput={userInput} onChangeInput={handleChange} />
+
+        {inputIsValid ? (
+          <Results input={userInput} />
+        ) : (
+          <p className="center">Please enter a duration greater than zero.</p>
+        )}
+      </main>
+
+      <Footer />
     </>
   );
 }

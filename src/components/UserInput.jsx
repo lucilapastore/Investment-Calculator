@@ -3,22 +3,22 @@ export default function UserInput({ onChangeInput, userInput }) {
     <section id="user-input">
       <div className="input-group">
         <p>
-          <label>Initial Investment</label>
+          <label>Initial Investment ($)</label>
           <input
             type="number"
             required
-            value={userInput.initialInvestment}
+            value={Number(userInput.initialInvestment).toString()}
             onChange={(event) =>
               onChangeInput("initialInvestment", event.target.value)
             }
           />
         </p>
         <p>
-          <label>Annual Investment</label>
+          <label>Annual Investment ($)</label>
           <input
             type="number"
             required
-            value={userInput.annualInvestmentInvestment}
+            value={Number(userInput.annualInvestment).toString()}
             onChange={(event) =>
               onChangeInput("annualInvestment", event.target.value)
             }
@@ -28,22 +28,23 @@ export default function UserInput({ onChangeInput, userInput }) {
 
       <div className="input-group">
         <p>
-          <label>Expected Return</label>
+          <label>Expected Return (%)</label>
           <input
             type="number"
             required
-            value={userInput.expectedReturn}
+            value={Number(userInput.expectedReturn).toString()}
             onChange={(event) =>
               onChangeInput("expectedReturn", event.target.value)
             }
           />
         </p>
         <p>
-          <label>Duration</label>
+          <label>Duration (years)</label>
           <input
             type="number"
             required
-            value={userInput.duration}
+            value={Number(userInput.duration).toString()}
+            max={50}
             onChange={(event) => onChangeInput("duration", event.target.value)}
           />
         </p>
